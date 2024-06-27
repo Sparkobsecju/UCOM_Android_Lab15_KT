@@ -30,15 +30,16 @@ class EchoService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         //Log.v(TAG,"起動的id是${startId}")
-        doEcho(startId)
+        val message = intent!!.getStringExtra(MainActivity.MESSAGE)
+        doEcho(startId, message)
         return super.onStartCommand(intent, flags, startId)
     }
 
-    private fun doEcho(startId: Int) {
+    private fun doEcho(startId: Int, message: String?) {
         Thread() {
             for (count in 1..10) {
 
-                Log.v(TAG, "起動的id是${startId}, 第${count}個")
+                Log.v(TAG, "[${message}]啟動的id是${startId}, 第${count}個")
                 Thread.sleep(500)
                 if (!isRunning) {
                     break
