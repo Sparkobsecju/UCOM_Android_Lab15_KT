@@ -11,7 +11,7 @@ class EchoService: Service() {
     private var flag = false
 
     companion object {
-        private const val TAG = "ECHO"
+        const val TAG = "ECHO"
     }
 
     override fun onBind(intent: Intent?): IBinder? {

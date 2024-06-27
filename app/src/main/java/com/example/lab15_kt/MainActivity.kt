@@ -18,29 +18,20 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val service = Intent(this, EchoService::class.java)
         val button1 = findViewById<Button>(R.id.button1)
         button1.setOnClickListener {
-            startAnService(button1)
+            startService(service)
         }
         val button2 = findViewById<Button>(R.id.button2)
         button2.setOnClickListener {
-            stopAnService(button2)
+            stopService(service)
         }
-
-
-    }
-
-    private fun startAnService(button1: Button) {
-        button1.setOnClickListener {
-            val intent = Intent(this, EchoService::class.java)
-            startService(intent)
-        }
-    }
-
-    private fun stopAnService(button2: Button) {
+        val intentService = Intent(this, EchoIntentService::class.java)
+        val button3 = findViewById<Button>(R.id.button2)
         button2.setOnClickListener {
-            val intent = Intent(this, EchoService::class.java)
-            stopService(intent)
+            stopService(intentService)
         }
     }
 }
