@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
         val echoIntentServiceIntent = Intent(this, EchoIntentService::class.java)
         findViewById<Button>(R.id.button3).setOnClickListener {
+            echoIntentServiceIntent.putExtra(MESSAGE,System.currentTimeMillis().toString() )
             startService(echoIntentServiceIntent)
         }
 

@@ -18,7 +18,7 @@ class EchoService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        Log.v(TAG, "一次性的啟動")
+        Log.v(TAG, "一次性的起動")
         isRunning = true
     }
 
@@ -39,7 +39,7 @@ class EchoService : Service() {
         Thread() {
             for (count in 1..10) {
 
-                Log.v(TAG, "[${message}]啟動的id是${startId}, 第${count}個")
+                Log.v(TAG, "[${message}]起動的id是${startId}, 第${count}個")
                 Thread.sleep(500)
                 if (!isRunning) {
                     break
