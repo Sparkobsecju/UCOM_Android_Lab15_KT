@@ -1,6 +1,8 @@
 package com.example.lab15_kt
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +17,30 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val button1 = findViewById<Button>(R.id.button1)
+        button1.setOnClickListener {
+            startAnService(button1)
+        }
+        val button2 = findViewById<Button>(R.id.button2)
+        button2.setOnClickListener {
+            stopAnService(button2)
+        }
+
+
+    }
+
+    private fun startAnService(button1: Button) {
+        button1.setOnClickListener {
+            val intent = Intent(this, EchoService::class.java)
+            startService(intent)
+        }
+    }
+
+    private fun stopAnService(button2: Button) {
+        button2.setOnClickListener {
+            val intent = Intent(this, EchoService::class.java)
+            stopService(intent)
         }
     }
 }
